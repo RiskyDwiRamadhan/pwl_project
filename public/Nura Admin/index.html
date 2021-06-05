@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Nura Admin - Dashboard</title>
+    <meta name="description" content="Dashboard | Nura Admin">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Your website">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font Awesome CSS -->
+    <link href="assets/font-awesome/css/all.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- BEGIN CSS for this page -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/chart.js/Chart.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/datatables/datatables.min.css" />
+    <!-- END CSS for this page -->
+</head>
+
+<body class="adminbody">
+
+    <div id="main">
+
+        <!-- top bar navigation -->
+        <div class="headerbar">
+
+            <!-- LOGO -->
+            <div class="headerbar-left">
+                <a href="index.html" class="logo">
+                    <img alt="Logo" src="assets/images/logo.png" />
+                    <span>Nura Admin</span>
+                </a>
+            </div>
+
+            <nav class="navbar-custom">
+
+                <ul class="list-inline float-right mb-0">
+                    <li class="list-inline-item dropdown notif">
+                        <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" aria-haspopup="false" aria-expanded="false">
+                            <img src="assets/images/avatars/admin.png" alt="Profile image" class="avatar-rounded">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h5 class="text-overflow">
+                                    <small>Hello, admin</small>
+                                </h5>
+                            </div>
+
+                            <!-- item-->
+                            <a href="profile.html" class="dropdown-item notify-item">
+                                <i class="fas fa-user"></i>
+                                <span>Profile</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="#" class="dropdown-item notify-item">
+                                <i class="fas fa-power-off"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+
+
+                <ul class="list-inline menu-left mb-0">
+                    <li class="float-left">
+                        <button class="button-menu-mobile open-left">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+        <!-- End Navigation -->
+
+        <!-- Left Sidebar -->
+        <div class="left main-sidebar">
+
+            <div class="sidebar-inner leftscroll">
+
+                <div id="sidebar-menu">
+
+                    <ul>
+
+                        <li class="submenu">
+                            <a href="users.html">
+                                <i class="fas fa-user"></i>
+                                <span> Users </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="blog.html">
+                                <i class="fas fa-file-alt"></i>
+                                <span> Makanan </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a id="tables" href="#">
+                                <i class="fas fa-table"></i>
+                                <span> Tables </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="tables-basic.html">Basic Tables</a>
+                                </li>
+                                <li>
+                                    <a href="tables-datatable.html">Data Tables</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="fas fa-laptop"></i>
+                                <span> User Interface </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="list-unstyled">
+                               
+                                <li>
+                                    <a href="ui-icons.html">Icons</a>
+                                </li>
+                               
+                                <li>
+                                    <a href="ui-icons.html">Icons</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="fab fa-wpforms"></i>
+                                <span> Forms </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="forms-general.html">General Elements</a>
+                                </li>
+                                <li>
+                                    <a href="forms-select2.html">Select2</a>
+                                </li>
+                                <li>
+                                    <a href="forms-validation.html">Form Validation</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="fas fa-file-image"></i>
+                                <span> Multimedia </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="media-fancybox.html">
+                                        <span class="label radius-circle bg-danger float-right">cool</span> Fancybox </a>
+                                </li>
+                                <li>
+                                    <a href="media-lightbox.html">Lightbox</a>
+                                </li>
+                                <li>
+                                    <a href="media-owl-carousel.html">Owl Carousel</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span> Plugins </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="sweetalert.html">SweetAlert</a>
+                                </li>
+                                <li>
+                                    <a href="counter-up.html">Counter-Up</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="#">
+                                <span class="label radius-circle bg-primary float-right">9</span>
+                                <i class="fas fa-indent"></i>
+                                <span> Menu Levels </span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <span>Second Level</span>
+                                    </a>
+                                </li>
+                                <li class="submenu">
+                                    <a href="#">
+                                        <span>Third Level</span>
+                                        <span class="menu-arrow"></span>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <span>Third Level Item</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span>Third Level Item</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="content-page">
+
+            <!-- Start content -->
+            <div class="content">
+
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="breadcrumb-holder">
+                                <h1 class="main-title float-left">Dashboard</h1>
+                                <ol class="breadcrumb float-right">
+                                    <li class="breadcrumb-item">Home</li>
+                                    <li class="breadcrumb-item active">Dashboard</li>
+                                </ol>
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+
+                    <div class="col-xl-12">
+	                    <div class="row">
+	                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+	                            <div class="card-box noradius noborder bg-danger">
+	                                <i class="far fa-user float-right text-white"></i>
+	                                <h6 class="text-white text-uppercase m-b-20">Users</h6>
+	                                <h1 class="m-b-20 text-white counter">487</h1>
+	                                <span class="text-white">Registered</span>
+	                            </div>
+	                        </div>
+
+	                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+	                            <div class="card-box noradius noborder bg-warning">
+	                                <i class="fas fa-shopping-cart float-right text-white"></i>
+	                                <h6 class="text-white text-uppercase m-b-20">Orders</h6>
+	                                <h1 class="m-b-20 text-white counter">320</h1>
+	                                <span class="text-white">Today</span>
+	                            </div>
+	                        </div>
+
+	                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+	                            <div class="card-box noradius noborder bg-info">
+	                                <i class="far fa-calendar-alt float-right text-white"></i>
+	                                <h6 class="text-white text-uppercase m-b-20">Booking</h6>
+	                                <h1 class="m-b-20 text-white counter">58</h1>
+	                                <span class="text-white">Today</span>
+	                            </div>
+	                        </div>
+
+	                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+	                            <div class="card-box noradius noborder bg-purple">
+	                                <i class="fas fa-money-bill-wave float-right text-white"></i>
+	                                <h6 class="text-white text-uppercase m-b-20">Income</h6>
+	                                <h1 class="m-b-20 text-white counter">290</h1>
+	                                <span class="text-white">Today</span>
+	                            </div>
+	                        </div>
+	                    </div>
+                    </div>
+                    <!-- end row -->
+
+                        <div class="col-12">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-user-friends"></i> Users details</h3>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <div class="table-responsive">
+                                        <table id="dataTable" class="table table-bordered table-hover display" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                    <th>Office</th>
+                                                    <th>Extn.</th>
+                                                    <th>Date</th>
+                                                    <th>Salary</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                    <!-- end table-responsive-->
+
+                                </div>
+                                <!-- end card-body-->
+                            </div>
+                            <!-- end card-->
+                        </div>
+
+                    </div>
+                    <!-- end row-->
+
+                </div>
+                <!-- END container-fluid -->
+
+            </div>
+            <!-- END content -->
+
+        </div>
+        <!-- END content-page -->
+
+        <footer class="footer">
+            <span class="text-right">                
+                Copyright <a target="_blank" href="#">Company</a>
+            </span>
+        </footer>
+
+        <script src="assets/js/modernizr.min.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/moment.min.js"></script>
+
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+
+        <script src="assets/js/detect.js"></script>
+        <script src="assets/js/fastclick.js"></script>
+        <script src="assets/js/jquery.blockUI.js"></script>
+        <script src="assets/js/jquery.nicescroll.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/admin.js"></script>
+
+    </div>
+    <!-- END main -->
+
+    <!-- BEGIN Java Script for this page -->
+    <script src="assets/plugins/chart.js/Chart.min.js"></script>
+    <script src="assets/plugins/datatables/datatables.min.js"></script>
+
+    <!-- Counter-Up-->
+    <script src="assets/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="assets/plugins/counterup/jquery.counterup.min.js"></script>
+
+    <!-- dataTabled data -->
+    <script src="assets/data/data_datatables.js"></script>
+
+    <!-- Charts data -->
+    <script src="assets/data/data_charts_dashboard.js"></script>
+    <script>
+        $(document).on('ready', function() {
+            // data-tables
+            $('#dataTable').DataTable({
+                data: dataSet,
+                columns: [{
+                    title: "Name"
+                }, {
+                    title: "Position"
+                }, {
+                    title: "Office"
+                }, {
+                    title: "Extn."
+                }, {
+                    title: "Date"
+                }, {
+                    title: "Salary"
+                }]
+            });
+
+            // counter-up
+            $('.counter').counterUp({
+                delay: 10,
+                time: 600
+            });
+        });
+    </script>
+    <!-- END Java Script for this page -->
+
+</body>
+
+</html>
