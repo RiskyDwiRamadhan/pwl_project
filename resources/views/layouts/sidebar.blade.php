@@ -9,49 +9,21 @@
                     <ul>
 
                         <li class="submenu">
-                            <a href="{{ route('userdata.index') }}">
+                            {{-- <a href="{{ route('userdata.index') }}"> --}}
+                                <a href="#">
                                 <i class="fas fa-user"></i>
                                 <span> Users </span>
                             </a>
                         </li>
-
-
                         <li class="submenu">
-                            <a id="tables" href="#">
-                                <i class="fas fa-laptop"></i>
-                                <span> Transaksi </span>
-                                <span class="menu-arrow"></span>
+                            <a href="{{ route('dvd.index') }}">
+                                {{-- <a href="#"> --}}
+                                <i class="fas fa-user"></i>
+                                <span> DVD </span>
                             </a>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="{{ route('home.transaksi') }}">Transaksi</a>
-                                </li>
-                            </ul>
                         </li>
 
-                        <li class="submenu">
-                            <a id="tables" href="#">
-                                <i class="fas fa-file-alt"></i>
-                                <span> Master Data </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="{{ route('menu.index') }}">
-                                        <span> Makanan </span>
-                                    </a>
-                                </li>
-        
-                                <li>
-                                    <a href="{{ route('favorite.index') }}">
-                                        <span> Favorite </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('booking.index') }}">Meja</a>
-                                </li>
-                            </ul>
-                        </li>
+
 
                     </ul>
 

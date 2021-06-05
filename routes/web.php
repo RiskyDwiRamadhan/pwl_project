@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DVDController;
 use App\Http\Controllers\PenyewaanController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,10 @@ use App\Http\Controllers\PenyewaanController;
 //     return view('welcome');
 // });
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('dvd', DVDController::class);
 Route::resource('sewa', PenyewaanController::class);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -4,7 +4,7 @@
 
             <!-- LOGO -->
             <div class="headerbar-left">
-                <a href="{{ route('home.admin') }}" class="logo">
+                <a href="{{ route('home') }}" class="logo">
                     {{-- <img alt="Logo" src="assets/images/logo.png" /> --}}
                     <span>HOMY ADMIN</span>
                 </a>
