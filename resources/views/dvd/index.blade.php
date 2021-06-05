@@ -104,16 +104,16 @@ Admin-DVD
                             <h3><i class="far fa-file-alt"></i> DVD</h3>
                         </div>
                         
-                        {{-- <div class="card-header" style="width:310px">
-                        <form action="/DVD/cari/" method="GET">
-                            <div class="input-group">
-                                <input type="text" name="keyword" class="form-control" placeholder="Cari DVD....">
-                                <button type="submit" class="btn btn-primary">
-                                    Cari
-                                </button>
-                            </div>
-                        </form>
-                        </div> --}}
+                        <div class="mt-3" style="width:310px">
+                            <form action="{{ route('dvd.index') }}" method="GET">
+                                <div class="input-group">
+                                    <input type="text" name="search" class="form-control" placeholder="Cari DVD....">
+                                    <button type="submit" class="btn btn-primary">
+                                        Cari
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                         <!-- end card-header -->
 
                             <div class="card-body">

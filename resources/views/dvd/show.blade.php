@@ -9,7 +9,7 @@
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                     {{-- <li class="list-group-item"><img width="100px" src="{{asset('storage/'.$Mahasiswa->foto)}}"></li> --}}
-                    <li class="list-group-item"><img width="100px" src="{{$dvd->image_dvd}}"></li>
+                    <li class="list-group-item"><img width="100px" src="{{ asset('storage/' . $dvd->image_dvd) }}"></li>
                     <li class="list-group-item"><b>Nama DVD     : </b>{{$dvd->nama_dvd}}</li>
                     <li class="list-group-item"><b>Harga DVD    : </b>{{$dvd->harga_dvd}}</li>
                     <li class="list-group-item"><b>Status DVD   : </b>{{$dvd->status_dvd}}</li>

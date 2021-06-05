@@ -15,7 +15,10 @@ class DVDController extends Controller
     public function index(Request $request)
     {
         if($request->has('search')){ // Pemilihan jika ingin melakukan pencarian nama
-            $dvd = DVD::where('nama_dvd', 'like', "%".$request->search."%")->paginate(5);
+            $dvd = DVD::where('nama_dvd', 'like', "%".$request->search."%")->
+                        orwhere('harga_dvd', 'like', "%".$request->search."%")->
+                        orwhere('status_dvd', 'like', "%".$request->search."%")->
+                        paginate(5);
         } else { // Pemilihan jika tidak melakukan pencarian nama
             //fungsi eloquent menampilkan data menggunakan pagination
             $dvd = DVD::paginate(5); // Pagination menampilkan 5 data

@@ -121,9 +121,7 @@ DVD-Create
                                         <button class="btn btn-primary" type="submit">
                                             Submit
                                         </button>
-                                        <button type="reset" class="btn btn-secondary m-l-5">
-                                            Cancel
-                                        </button>
+                                    <a class="btn btn-secondary mt3" href="{{ route('dvd.index') }}">Kembali</a>
                                     </div>
 
                                 </form>
