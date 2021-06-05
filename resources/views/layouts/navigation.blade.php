@@ -5,7 +5,7 @@
             <!-- LOGO -->
             <div class="headerbar-left">
                 <a href="{{ route('home') }}" class="logo">
-                    {{-- <img alt="Logo" src="assets/images/logo.png" /> --}}
+                    {{-- <img alt="Logo" src="{{ asset('') }}assets/images/logo.png" /> --}}
                     <span>HOMY ADMIN</span>
                 </a>
             </div>
@@ -15,7 +15,7 @@
                 <ul class="list-inline float-right mb-0">
                     <li class="list-inline-item dropdown notif">
                         <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" aria-haspopup="false" aria-expanded="false">
-                            <img src="Nura Admin/assets/images/avatars/admin.png" alt="Profile image" class="avatar-rounded">
+                            <img src="{{ asset('Nura Admin/assets/images/avatars/admin.png') }}" alt="Profile image" class="avatar-rounded">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                             <!-- item-->

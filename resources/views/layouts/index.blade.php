@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <title>
@@ -11,20 +11,20 @@
     <meta name="author" content="Your website">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="Nura Admin/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('Nura Admin/assets/images/favicon.ic') }}o">
 
     <!-- Bootstrap CSS -->
-    <link href="Nura Admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('Nura Admin/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Font Awesome CSS -->
-    <link href="Nura Admin/assets/font-awesome/css/all.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('Nura Admin/assets/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Custom CSS -->
-    <link href="Nura Admin/assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('Nura Admin/assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- BEGIN CSS for this page -->
-    <link rel="stylesheet" type="text/css" href="Nura Admin/assets/plugins/chart.js/Chart.min.css" />
-    <link rel="stylesheet" type="text/css" href="Nura Admin/assets/plugins/datatables/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('Nura Admin/assets/plugins/chart.js/Chart.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('Nura Admin/assets/plugins/datatables/datatables.min.css') }}" />
     <!-- END CSS for this page -->
 </head>
 
@@ -42,37 +42,37 @@
           </span>
       </footer>
       {{-- @include('layouts.footer') --}}
-        <script src="Nura Admin/assets/js/modernizr.min.js"></script>
-        <script src="Nura Admin/assets/js/jquery.min.js"></script>
-        <script src="Nura Admin/assets/js/moment.min.js"></script>
+        <script src="{{ asset('Nura Admin/assets/js/modernizr.min.js') }}"></script>
+        <script src="{{ asset('Nura Admin/assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('Nura Admin/assets/js/moment.min.js') }}"></script>
 
-        <script src="Nura Admin/assets/js/popper.min.js"></script>
-        <script src="Nura Admin/assets/js/bootstrap.min.js"></script>
+        <script src="{{ asset('Nura Admin/assets/js/popper.min.js') }}"></script>
+        <script src="{{ asset('Nura Admin/assets/js/bootstrap.min.js') }}"></script>
 
-        <script src="Nura Admin/assets/js/detect.js"></script>
-        <script src="Nura Admin/assets/js/fastclick.js"></script>
-        <script src="Nura Admin/assets/js/jquery.blockUI.js"></script>
-        <script src="Nura Admin/assets/js/jquery.nicescroll.js"></script>
+        <script src="{{ asset('Nura Admin/assets/js/detect.js') }}"></script>
+        <script src="{{ asset('Nura Admin/assets/js/fastclick.js') }}"></script>
+        <script src="{{ asset('Nura Admin/assets/js/jquery.blockUI.js') }}"></script>
+        <script src="{{ asset('Nura Admin/assets/js/jquery.nicescroll.js') }}"></script>
 
         <!-- App js -->
-        <script src="Nura Admin/assets/js/admin.js"></script>
+        <script src="{{ asset('Nura Admin/assets/js/admin.js') }}"></script>
 
     </div>
     <!-- END main -->
     <!-- BEGIN Java Script for this page -->
-    <script src="Nura Admin/assets/plugins/chart.js/Chart.min.js"></script>
-    <script src="Nura Admin/assets/plugins/datatables/datatables.min.js"></script>
+    <script src="{{ asset('Nura Admin/assets/plugins/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('Nura Admin/assets/plugins/datatables/datatables.min.js') }}"></script>
 
 
     <!-- Counter-Up-->
-    <script src="Nura Admin/assets/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
-    <script src="Nura Admin/assets/plugins/counterup/jquery.counterup.min.js"></script>
+    <script src="{{ asset('Nura Admin/assets/plugins/waypoints/lib/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('Nura Admin/assets/plugins/counterup/jquery.counterup.min.js') }}"></script>
 
     <!-- dataTabled data -->
-    <script src="Nura Admin/assets/data/data_datatables.js"></script>
+    <script src="{{ asset('Nura Admin/assets/data/data_datatables.js') }}"></script>
 
     <!-- Charts data -->
-    <script src="Nura Admin/assets/data/data_charts_dashboard.js"></script>
+    <script src="{{ asset('Nura Admin/assets/data/data_charts_dashboard.j') }}s"></script>
     <script>
         $(document).on('ready', function() {
             // data-tables
