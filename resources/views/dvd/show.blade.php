@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.index')
 @section('content')
     <div class="container mt-5" enctype="multipart/form-data">
         <div class="row justify-content-center align-items-center">
