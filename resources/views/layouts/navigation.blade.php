@@ -6,7 +6,7 @@
             <div class="headerbar-left">
                 <a href="{{ route('home') }}" class="logo">
                     {{-- <img alt="Logo" src="{{ asset('') }}assets/images/logo.png" /> --}}
-                    <span>HOMY ADMIN</span>
+                    <span>Penyewaan DVD</span>
                 </a>
             </div>
 

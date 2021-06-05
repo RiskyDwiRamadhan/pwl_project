@@ -17,8 +17,7 @@
                         </li>
                         <li class="submenu">
                             <a href="{{ route('dvd.index') }}">
-                                {{-- <a href="#"> --}}
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-table"></i>
                                 <span> DVD </span>
                             </a>
                         </li>
