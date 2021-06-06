@@ -114,6 +114,10 @@ DVD-Create
                                         <input type="text" value="{{ $dvd->harga_dvd }}" name="harga_dvd" data-parsley-trigger="change" required placeholder="Masukkan Harga DVD" class="form-control" id="harga_dvd">
                                     </div>
                                     <div class="form-group">
+                                        <label for="stok">Stok DVD<span class="text-danger">*</span></label>
+                                        <input type="text" value="{{ $dvd->stok }}" name="stok" data-parsley-trigger="change" required placeholder="Masukkan Harga DVD" class="form-control" id="stok">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="status_dvd">Status DVD<span class="text-danger">*</span></label>
                                         <input type="text" value="{{ $dvd->status_dvd }}" name="status_dvd" data-parsley-trigger="change" required placeholder="Masukkan Status DVD" class="form-control" id="status_dvd">
                                     </div>

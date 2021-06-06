@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DVDController;
 use App\Http\Controllers\PenyewaanController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +23,9 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/dvds', [DVDController::class, 'dvd'])->name('dvd.home');
-Route::get('/pesan/{id}', [DVDController::class, 'pesan'])->name('dvd.pesan');
+Route::get('/pesan/{id}', [OrderController::class, 'pesan'])->name('dvd.pesan');
 
+Route::resource('order', OrderController::class);
 Route::resource('dvd', DVDController::class);
 Route::resource('sewa', PenyewaanController::class);
 

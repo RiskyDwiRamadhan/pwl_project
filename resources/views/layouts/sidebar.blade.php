@@ -25,6 +25,14 @@
 
                         <li class="submenu">
                             {{-- <a href="{{ route('userdata.index') }}"> --}}
+                                <a href="{{ route('order.index') }}">
+                                <i class="fas fa-clipboard"></i>
+                                <span> Order </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            {{-- <a href="{{ route('userdata.index') }}"> --}}
                                 <a href="#">
                                 <span> Admin </span>
                             </a>
