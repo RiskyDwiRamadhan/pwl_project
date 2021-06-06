@@ -21,6 +21,9 @@ use App\Http\Controllers\HomeController;
 // });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/dvds', [DVDController::class, 'dvd'])->name('dvd.home');
+Route::get('/pesan/{id}', [DVDController::class, 'pesan'])->name('dvd.pesan');
+
 Route::resource('dvd', DVDController::class);
 Route::resource('sewa', PenyewaanController::class);
 

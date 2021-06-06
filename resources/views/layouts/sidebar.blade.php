@@ -11,6 +11,28 @@
                         <li class="submenu">
                             {{-- <a href="{{ route('userdata.index') }}"> --}}
                                 <a href="#">
+                                <span> Kasir </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            {{-- <a href="{{ route('userdata.index') }}"> --}}
+                                <a href="{{ route('dvd.home') }}">
+                                <i class="fas fa-clipboard"></i>
+                                <span> DVD </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            {{-- <a href="{{ route('userdata.index') }}"> --}}
+                                <a href="#">
+                                <span> Admin </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            {{-- <a href="{{ route('userdata.index') }}"> --}}
+                                <a href="#">
                                 <i class="fas fa-user"></i>
                                 <span> Users </span>
                             </a>
@@ -18,7 +40,7 @@
                         <li class="submenu">
                             <a href="{{ route('dvd.index') }}">
                                 <i class="fas fa-table"></i>
-                                <span> DVD </span>
+                                <span> Data DVD </span>
                             </a>
                         </li>
 

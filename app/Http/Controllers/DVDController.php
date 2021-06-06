@@ -139,4 +139,24 @@ class DVDController extends Controller
         DVD::find($id)->delete();
         return redirect()->route('dvd.index')-> with('success', 'DVD Berhasil Dihapus');
     }
+
+    public function dvd(Request $request)
+    {
+        if($request->has('search')){ // Pemilihan jika ingin melakukan pencarian nama
+            $dvd = DVD::where('nama_dvd', 'like', "%".$request->search."%")->
+                        orwhere('harga_dvd', 'like', "%".$request->search."%")->
+                        orwhere('status_dvd', 'like', "%".$request->search."%")->
+                        paginate(6);
+        } else { // Pemilihan jika tidak melakukan pencarian nama
+            //fungsi eloquent menampilkan data menggunakan pagination
+            $dvd = DVD::paginate(5); // Pagination menampilkan 5 data
+        }
+        return view('dvd.dvd', compact('dvd'));
+    }
+
+    public function pesan(Request $request, $id)
+    {
+        $DVD = DVD::find($id);
+        return view('order.detail', compact('DVD'));
+    }
 }
