@@ -4,22 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\DetaiOrder;
 
 class Order extends Model
 {
     use HasFactory;
-    protected $table="penyewaan_dvd"; 
+    protected $table="order"; 
     public $timestamps= false;
-    protected $primaryKey = 'id_penyewaan';
+    protected $primaryKey = 'id_sewa';
     protected $keyType = "string";
 
     
    protected $fillable = [
-        'id_penyewaan',
+        'id_sewa',
         'id_user',
-        'id_dvd',
         'tanggal_sewa',
         'tanggal_kembali',
         'harga_sewa'
     ];
+
+    public function dorder()
+    {
+        return $this->hashMany(DetailOrder::class, 'id_dorder');
+    }
 }

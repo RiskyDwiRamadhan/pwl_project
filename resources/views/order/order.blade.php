@@ -110,12 +110,22 @@ Admin-Order
 
                     <div class="card mb-3">
 
-                        <div class="card-header">
-                            <span class="pull-right"><a href="{{ route('order.create') }}" class="btn btn-success btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Order</a></span>
+                        {{-- <div class="card-header">
+                            <span class="pull-right"><a href="{{ route('order.store') }}" class="btn btn-success btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Order</a></span>
                             <span class="pull-right"><a href="{{ route('dvd.home') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Add Order</a></span>
                             <h3><i class="far fa-file-alt"></i> Order</h3>
-                        </div>
+                        </div> --}}
                         <!-- end card-header -->
+
+                        <form method="post" action="{{ route('order.save') }}" id="myForm" enctype="multipart/form-data">
+                            @csrf
+                            @method('GET')
+
+                            <div class="card-header">
+                                <button type="submit" class="btn btn-success pull-right btn-sm">Submit</button>  
+                                <span class="pull-right"><a href="{{ route('dvd.home') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Add Order</a></span>
+                                <h3><i class="far fa-file-alt"></i> Order</h3>
+                            </div>
 
                             <div class="card-body">
 
@@ -136,8 +146,8 @@ Admin-Order
                                                 <td>{{ $D->dvd->harga_dvd }}</td>
                                                 <td>
                                                     <form action="{{ route('order.destroy', $D->id_sorder) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
+                                                    {{-- @csrf --}}
+                                                    {{-- @method('DELETE') --}}
                                                         <button type="submit" class="btn btn-danger btn-sm btn-block" onclick="return confirm('Anda yakin ingin meghapus data ini ?')">Delete</button>
                                                                 
                                                     </form>
@@ -160,12 +170,12 @@ Admin-Order
                                 <div class="container mt-1 " style="width: 24rem;"> 
                                     
                                     <div class="form-group">
-                                        <label for="tanggal">Tanggal Pinjam</label>
-                                        <input type="tanggal" name="tanggal" class="form-control" id="tanggal" aria-describedby="Tanggal Transaksi" value="{{NOW()}}">
+                                        <label for="pinjam">Tanggal Pinjam</label>
+                                        <input type="text" name="pinjam" class="form-control" id="pinjam" aria-describedby="Tanggal Sewa" value="{{now()}}" readonly>
                                     </div>
                                     <div class="form-group">
-                                        <label for="tanggal">Tanggal Kembali</label>
-                                        <input type="tanggal" name="tanggal" class="form-control" id="tanggal" aria-describedby="Tanggal Transaksi" value="{{NOW()}}">
+                                        <label for="kembali">Tanggal Kembali</label>
+                                        <input type="DATE" name="kembali" class="form-control" id="kembali" aria-describedby="Tanggal Kembali" value="{{NOW()}}">
                                     </div>
                                 </div>
                             </div> 
@@ -187,4 +197,5 @@ Admin-Order
 
 </div>
 <!-- END content-page -->
+</form>
 @endsection 

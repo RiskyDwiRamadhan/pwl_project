@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\OrderSementara;
 use App\Models\DVD;
+use App\Models\Order;
+use App\Models\DetailOrder;
 
 class OrderController extends Controller
 {
@@ -38,7 +40,6 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -101,4 +102,42 @@ class OrderController extends Controller
         ]);
         return redirect()->route('dvd.home');
     }
+
+    
+    public function save(Request $request)
+    {
+        $request->validate([
+            'kembali'=>'required',
+        ]);
+
+        $sementara = OrderSementara::All();
+        $idorder ='O'.date('ymd').rand(01,999);
+        
+        // $meja = Meja::where('id_meja', 'like', "%".$request->get('no_meja')."%")->first();
+        // $meja->status_meja = 'terisi';
+        // $meja->update();
+    
+        $order = new Order;
+        $order->id_sewa = $idorder;
+        $order->id_user = '1';
+        $order->tanggal_sewa = now();
+        $order->tanggal_kembali = $request->get('kembali');
+        $order->harga_sewa = $sementara->sum('harga');
+        $order->status = 'belum';
+        $order->save();
+    
+        foreach ($sementara as $key => $value) {
+            $order = array(
+                'id_dorder' => 'DO'.date('ymd').rand(01,999),
+                'id_sewa'=> $idorder,
+                'id_dvd' => $value->id_dvd,
+                'harga' =>$value->harga,
+            );
+            DetailOrder::insert($order);
+            OrderSementara::where('id_sorder', 'like', "%".$value->id_dorder."%")->first()->delete();
+    
+        }       
+        return redirect()->route('order.index');
+    }
+
 }

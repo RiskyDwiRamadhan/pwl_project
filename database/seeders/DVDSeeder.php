@@ -44,7 +44,7 @@ class DVDSeeder extends Seeder
             'image_dvd' => '/template/images/iron man 1.jpg'
         ],[
             'id_dvd' => '5',
-            'nama_dvd' =>'IRON MAN 1',
+            'nama_dvd' =>'IRON MAN 2',
             'harga_dvd' => '15000',
             'status_dvd' => 'belum dipinjam',
             'stok' => '5',

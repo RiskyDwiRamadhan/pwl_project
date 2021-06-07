@@ -23,6 +23,7 @@ use App\Http\Controllers\OrderController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/dvds', [DVDController::class, 'dvd'])->name('dvd.home');
 Route::get('/pesan/{id}', [OrderController::class, 'pesan'])->name('dvd.pesan');
+Route::get('/save', [OrderController::class, 'save'])->name('order.save');
 
 Route::resource('order', OrderController::class);
 Route::resource('dvd', DVDController::class);

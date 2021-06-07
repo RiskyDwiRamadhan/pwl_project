@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->date('tanggal_sewa')->nullable();
             $table->date('tanggal_kembali')->nullable();
             $table->Integer('harga_sewa')->nullable();
+            $table->String('status', 25)->nullable();
             $table->timestamps();
         });
     }
