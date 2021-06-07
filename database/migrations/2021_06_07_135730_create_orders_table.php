@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePenyewaansTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreatePenyewaansTable extends Migration
      */
     public function up()
     {
-        Schema::create('penyewaan_dvd', function (Blueprint $table) {
-            $table->String('id_penyewaan', 15)->primary();
+        Schema::create('order', function (Blueprint $table) {
+            $table->String('id_sewa', 15)->primary();
             $table->String('id_user', 15)->nullable();
-            $table->String('id_dvd', 15)->nullable();
-            $table->foreign('id_dvd')->references('id_dvd')->on('dvd')->nullable();
             $table->date('tanggal_sewa')->nullable();
             $table->date('tanggal_kembali')->nullable();
             $table->Integer('harga_sewa')->nullable();
@@ -32,6 +30,6 @@ class CreatePenyewaansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penyewaan_dvd');
+        Schema::dropIfExists('order');
     }
 }

@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DVDController;
-use App\Http\Controllers\PenyewaanController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 
@@ -27,7 +26,6 @@ Route::get('/pesan/{id}', [OrderController::class, 'pesan'])->name('dvd.pesan');
 
 Route::resource('order', OrderController::class);
 Route::resource('dvd', DVDController::class);
-Route::resource('sewa', PenyewaanController::class);
 
 Auth::routes();
 

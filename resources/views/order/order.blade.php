@@ -170,10 +170,6 @@ Admin-Order
                                 </div>
                             </div> 
                             <!-- end card-body -->
-
-                            {{-- <div class="d-flex">
-                                {{ $dvd->links() }}
-                            </div>  --}}
                     </div>
                     <!-- end card -->
 
