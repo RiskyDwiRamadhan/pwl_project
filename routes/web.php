@@ -23,6 +23,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('dvd', DVDController::class);
 Route::resource('sewa', PenyewaanController::class);
+Route::resource('userku', UserkuController::class);
 
 Auth::routes();
 
