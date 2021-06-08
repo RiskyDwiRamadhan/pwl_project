@@ -4,22 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\DVD;
 
-class Penyewaan extends Model
+class OrderSementara extends Model
 {
     use HasFactory;
-    protected $table="penyewaan_dvd"; 
+    protected $table="order_sementara"; 
     public $timestamps= false;
-    protected $primaryKey = 'id_penyewaan';
+    protected $primaryKey = 'id_sorder';
     protected $keyType = "string";
 
     
    protected $fillable = [
-        'id_penyewaan',
-        'id_user',
+        'id_sorder',
         'id_dvd',
-        'tanggal_sewa',
-        'tanggal_kembali',
-        'harga_sewa'
+        'harga'
     ];
+
+    public function dvd()
+    {
+        return $this->belongsTo(DVD::class, 'id_dvd');
+    }
 }

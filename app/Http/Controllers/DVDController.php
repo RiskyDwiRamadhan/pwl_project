@@ -49,6 +49,7 @@ class DVDController extends Controller
             'nama_dvd' => 'required',
             'harga_dvd'=> 'required',
             'status_dvd'=> 'required',
+            'stok'=> 'required',
             'image'=> 'required|file|image|mimes:jpeg,png,jpg',
         ]);
 
@@ -62,6 +63,7 @@ class DVDController extends Controller
         $dvd->nama_dvd = $request->get('nama_dvd');
         $dvd->harga_dvd = $request->get('harga_dvd');
         $dvd->status_dvd = $request->get('status_dvd');
+        $dvd->stok = $request->get('stok');
         $dvd->image_dvd = $image_name;
 
         $dvd->save(); 
@@ -107,6 +109,7 @@ class DVDController extends Controller
             'nama_dvd' => 'required',
             'harga_dvd'=> 'required',
             'status_dvd'=> 'required',
+            'stok'=> 'required',
             'image'=> 'required|file|image|mimes:jpeg,png,jpg',
         ]);
         
@@ -115,6 +118,7 @@ class DVDController extends Controller
         $dvd->nama_dvd = $request->get('nama_dvd');
         $dvd->harga_dvd = $request->get('harga_dvd');
         $dvd->status_dvd = $request->get('status_dvd');
+        $dvd->stok = $request->get('stok');
 
         if($dvd->image && file_exists(storage_path('app/public/' .$dvd->image))){
             Storage::delete('public/' .$dvd->image);
@@ -138,5 +142,19 @@ class DVDController extends Controller
     {
         DVD::find($id)->delete();
         return redirect()->route('dvd.index')-> with('success', 'DVD Berhasil Dihapus');
+    }
+
+    public function dvd(Request $request)
+    {
+        if($request->has('search')){ // Pemilihan jika ingin melakukan pencarian nama
+            $dvd = DVD::where('nama_dvd', 'like', "%".$request->search."%")->
+                        orwhere('harga_dvd', 'like', "%".$request->search."%")->
+                        orwhere('status_dvd', 'like', "%".$request->search."%")->
+                        paginate(6);
+        } else { // Pemilihan jika tidak melakukan pencarian nama
+            //fungsi eloquent menampilkan data menggunakan pagination
+            $dvd = DVD::paginate(5); // Pagination menampilkan 5 data
+        }
+        return view('dvd.dvd', compact('dvd'));
     }
 }

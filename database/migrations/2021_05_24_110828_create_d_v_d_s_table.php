@@ -18,6 +18,7 @@ class CreateDVDSTable extends Migration
             $table->String('nama_dvd', 20)->nullable();
             $table->String('harga_dvd', 10)->nullable();
             $table->String('status_dvd', 50)->nullable();
+            $table->Integer('stok')->nullable();
             $table->String('image_dvd', 255)->nullable();
             $table->timestamps();
         });
