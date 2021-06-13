@@ -8,6 +8,7 @@
 
                     <ul>
 
+                    @if (Auth::user()->role == 'kasir')
                         <li class="submenu">
                             {{-- <a href="{{ route('userdata.index') }}"> --}}
                                 <a href="#">
@@ -31,6 +32,7 @@
                             </a>
                         </li>
 
+                    @else
                         <li class="submenu">
                             {{-- <a href="{{ route('userdata.index') }}"> --}}
                                 <a href="#">
@@ -51,9 +53,7 @@
                                 <span> Data DVD </span>
                             </a>
                         </li>
-
-
-
+                    @endif
                     </ul>
 
                     <div class="clearfix"></div>

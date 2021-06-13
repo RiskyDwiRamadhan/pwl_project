@@ -17,17 +17,33 @@ use App\Http\Controllers\OrderController;
 */
 
 // Route::get('/', function () {
-//     return view('welcome');
+//     return view('index');
 // });
-
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/dvds', [DVDController::class, 'dvd'])->name('dvd.home');
-Route::get('/pesan/{id}', [OrderController::class, 'pesan'])->name('dvd.pesan');
-Route::get('/save', [OrderController::class, 'save'])->name('order.save');
-
-Route::resource('order', OrderController::class);
-Route::resource('dvd', DVDController::class);
 
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/', [HomeController::class, 'home'])->name('home');
+
+    Route::middleware(['admin'])->group(function () {
+        Route::resource('dvd', DVDController::class); 
+        // Route::get('/', [HomeController::class, 'index'])->name('home');       
+    });
+ 
+    Route::middleware(['kasir'])->group(function () {
+        Route::get('/dvds', [DVDController::class, 'dvd'])->name('dvd.home');
+        Route::get('/pesan/{id}', [OrderController::class, 'pesan'])->name('dvd.pesan');
+        Route::get('/save', [OrderController::class, 'save'])->name('order.save');
+        
+        Route::resource('order', OrderController::class);
+    });
+ 
+    Route::get('/logout', function() {
+        Auth::logout();
+        redirect('/');
+    });
+ 
+});
