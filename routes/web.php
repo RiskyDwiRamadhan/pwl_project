@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DVDController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\KembaliController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/save', [OrderController::class, 'save'])->name('order.save');
         
         Route::resource('order', OrderController::class);
+        Route::resource('kembali', KembaliController::class);
     });
  
     Route::get('/logout', function() {

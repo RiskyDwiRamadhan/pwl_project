@@ -20,7 +20,8 @@ class Order extends Model
         'id_user',
         'tanggal_sewa',
         'tanggal_kembali',
-        'harga_sewa'
+        'harga_sewa',
+        'status'
     ];
 
     public function dorder()

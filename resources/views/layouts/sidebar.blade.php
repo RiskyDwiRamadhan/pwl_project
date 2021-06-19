@@ -28,7 +28,15 @@
                             {{-- <a href="{{ route('userdata.index') }}"> --}}
                                 <a href="{{ route('order.index') }}">
                                 <i class="fas fa-clipboard"></i>
-                                <span> Order </span>
+                                <span> Sewa </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            {{-- <a href="{{ route('userdata.index') }}"> --}}
+                                <a href="{{ route('kembali.index') }}">
+                                <i class="fas fa-clipboard"></i>
+                                <span> Kembali </span>
                             </a>
                         </li>
 
