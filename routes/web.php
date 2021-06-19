@@ -21,7 +21,17 @@ use App\Http\Controllers\KembaliController;
 //     return view('index');
 // });
 
-Auth::routes();
+// Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/dvds', [DVDController::class, 'dvd'])->name('dvd.home');
+// Route::get('/pesan/{id}', [OrderController::class, 'pesan'])->name('dvd.pesan');
+// Route::get('/save', [OrderController::class, 'save'])->name('order.save');
+
+// Route::resource('order', OrderController::class);
+// Route::resource('dvd', DVDController::class);
+// Route::resource('sewa', PenyewaanController::class);
+// Route::resource('userku', UserkuController::class);
+
+// Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
