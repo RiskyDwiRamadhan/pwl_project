@@ -7,13 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Userku extends Model
 {
-    protected $table ="userku";
+    protected $table ="users";
     public $timestamps = false;
     protected $primaryKey ="id";
 
     protected $fillable = [
+        'id',
+        'name',
         'email',
-        'username',
-        'password'
+        'password',
+        'role',
     ];
 }

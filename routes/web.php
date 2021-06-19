@@ -5,6 +5,7 @@ use App\Http\Controllers\DVDController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\KembaliController;
+use App\Http\Controllers\UserkuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +30,9 @@ use App\Http\Controllers\KembaliController;
 // Route::resource('order', OrderController::class);
 // Route::resource('dvd', DVDController::class);
 // Route::resource('sewa', PenyewaanController::class);
-// Route::resource('userku', UserkuController::class);
+Route::resource('userdata', UserkuController::class);
 
-// Auth::routes();
+Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

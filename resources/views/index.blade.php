@@ -69,7 +69,7 @@ Dashboard - Home
 	                    </div>
                     </div>
                     <!-- end row -->
-{{-- 
+                    
                         <div class="col-12">
                             <div class="card mb-3">
                                 <div class="card-header">
@@ -79,7 +79,7 @@ Dashboard - Home
                                 <div class="card-body">
 
                                     <div class="table-responsive">
-                                        <table id="dataTable" class="table table-bordered table-hover display" style="width:100%">
+                                        <table id="" class="table table-bordered table-hover display" style="width:100%">
                                             <thead>
                                                 <tr>
                                                     <th>Name</th>
@@ -98,17 +98,21 @@ Dashboard - Home
                                 <!-- end card-body-->
                             </div>
                             <!-- end card-->
-                        </div> --}}
+                        </div>
 
                     </div>
                     <!-- end row-->
 
+                    
                 </div>
                 <!-- END container-fluid -->
 
+
+                
             </div>
             <!-- END content -->
 
         </div>
         <!-- END content-page -->
+
 @endsection 

@@ -10,14 +10,12 @@
 
                     @if (Auth::user()->role == 'kasir')
                         <li class="submenu">
-                            {{-- <a href="{{ route('userdata.index') }}"> --}}
                                 <a href="#">
                                 <span> Kasir </span>
                             </a>
                         </li>
 
                         <li class="submenu">
-                            {{-- <a href="{{ route('userdata.index') }}"> --}}
                                 <a href="{{ route('dvd.home') }}">
                                 <i class="fas fa-clipboard"></i>
                                 <span> DVD </span>
@@ -25,32 +23,28 @@
                         </li>
 
                         <li class="submenu">
-                            {{-- <a href="{{ route('userdata.index') }}"> --}}
                                 <a href="{{ route('order.index') }}">
                                 <i class="fas fa-clipboard"></i>
-                                <span> Sewa </span>
+                                <span> Penyewaan </span>
                             </a>
                         </li>
 
                         <li class="submenu">
-                            {{-- <a href="{{ route('userdata.index') }}"> --}}
                                 <a href="{{ route('kembali.index') }}">
                                 <i class="fas fa-clipboard"></i>
-                                <span> Kembali </span>
+                                <span> Pengembalian </span>
                             </a>
                         </li>
 
                     @else
                         <li class="submenu">
-                            {{-- <a href="{{ route('userdata.index') }}"> --}}
                                 <a href="#">
                                 <span> Admin </span>
                             </a>
                         </li>
-
                         <li class="submenu">
-                            {{-- <a href="{{ route('userdata.index') }}"> --}}
                                 <a href="#">
+                            <!-- <a href="{{ route('userdata.index') }}"> -->
                                 <i class="fas fa-user"></i>
                                 <span> Users </span>
                             </a>

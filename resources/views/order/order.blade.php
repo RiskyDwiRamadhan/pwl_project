@@ -122,7 +122,6 @@ Admin-Order
                             @method('GET')
 
                             <div class="card-header">
-                                <button type="submit" class="btn btn-success pull-right btn-sm">Submit</button>  
                                 <span class="pull-right"><a href="{{ route('dvd.home') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Add Order</a></span>
                                 <h3><i class="far fa-file-alt"></i> Order</h3>
                             </div>
@@ -133,21 +132,24 @@ Admin-Order
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
+                                                <th width="5px">#</th>
                                                 <th width="280px">Nama DVD</th>
                                                 <th width="280px">Harga DVD</th>
                                                 <th width="100px">Action</th>
                                             </tr>
                                         </thead>
+                                    @php $no = 1; @endphp
                                     @foreach ($detailorder as $D)
                                         <tbody>
 
                                             <tr>
+                                                <td>{{ $no++ }}</td>
                                                 <td>{{ $D->dvd->nama_dvd }}</td>
                                                 <td>{{ $D->dvd->harga_dvd }}</td>
                                                 <td>
                                                     <form action="{{ route('order.destroy', $D->id_sorder) }}" method="post">
-                                                    {{-- @csrf --}}
-                                                    {{-- @method('DELETE') --}}
+                                                    {{-- --}}@csrf 
+                                                    {{--  --}}@method('DELETE')
                                                         <button type="submit" class="btn btn-danger btn-sm btn-block" onclick="return confirm('Anda yakin ingin meghapus data ini ?')">Delete</button>
                                                                 
                                                     </form>
@@ -156,8 +158,21 @@ Admin-Order
                                         </tbody>
                                     @endforeach   
                                     <tr>
+                                        <th ></th>
                                         <th width="110px">Total Harga</th>
                                         <th>{{$detailorder->sum('harga')}}</th>
+                                        <th ></th>
+                                    </tr>
+                                    <tr>
+                                        <th ></th>
+                                        <th width="110px">Uang Bayar</th>
+                                        <th><input type="text"></th>
+                                        <th ></th>
+                                    </tr>
+                                    <tr>
+                                        <th ></th>
+                                        <th width="110px">Kembalian</th>
+                                        <th><input type="text" readonly></th>
                                         <th ></th>
                                     </tr>
                                     </table>
@@ -177,6 +192,7 @@ Admin-Order
                                         <label for="kembali">Tanggal Kembali</label>
                                         <input type="DATE" name="kembali" class="form-control" id="kembali" aria-describedby="Tanggal Kembali" value="{{NOW()}}">
                                     </div>
+                                <button type="submit" class="btn btn-success pull-right btn-sm btn-block mb-3">Submit</button>  
                                 </div>
                             </div> 
                             <!-- end card-body -->
