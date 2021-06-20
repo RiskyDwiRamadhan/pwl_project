@@ -15,10 +15,12 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->String('id_sewa', 15)->primary();
-            $table->String('id_user', 15)->nullable();
+            $table->bigInteger('id_user')->nullable();
             $table->date('tanggal_sewa')->nullable();
             $table->date('tanggal_kembali')->nullable();
             $table->Integer('harga_sewa')->nullable();
+            $table->Integer('uang_bayar')->nullable();
+            $table->Integer('kembalian')->nullable();
             $table->String('status', 25)->nullable();
             $table->timestamps();
         });
