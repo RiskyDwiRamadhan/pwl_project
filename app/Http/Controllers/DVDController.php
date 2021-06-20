@@ -21,7 +21,7 @@ class DVDController extends Controller
                         paginate(5);
         } else { // Pemilihan jika tidak melakukan pencarian nama
             //fungsi eloquent menampilkan data menggunakan pagination
-            $dvd = DVD::paginate(5); // Pagination menampilkan 5 data
+            $dvd = DVD::where('stok', '>','0')->paginate(10); // Pagination menampilkan 5 data
         }
         return view('dvd.index', compact('dvd'));
     }
@@ -120,11 +120,16 @@ class DVDController extends Controller
         $dvd->status_dvd = $request->get('status_dvd');
         $dvd->stok = $request->get('stok');
 
-        if($dvd->image && file_exists(storage_path('app/public/' .$dvd->image))){
-            Storage::delete('public/' .$dvd->image);
+        if($dvd->image && file_exists(storage_path('app/public/' .$dvd->image_dvd))){
+            Storage::delete('public/images/' .$dvd->image);
         }
-        $image_name = $request->file('image')->store('images', 'public');
-        $dvd->image_dvd = $image_name;
+
+        if ($request->file('image') != null) {
+            $image_name = $request->file('image')->store('images', 'public');
+            $dvd->image_dvd = $image_name;
+        }
+        // $image_name = $request->file('image')->store('images', 'public');
+        // $dvd->image_dvd = $image_name;   
 
 
         $dvd->update(); 

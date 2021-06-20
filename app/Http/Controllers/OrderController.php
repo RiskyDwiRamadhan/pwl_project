@@ -108,21 +108,21 @@ class OrderController extends Controller
     {
         $request->validate([
             'kembali'=>'required',
+            'kembalian'=>'required',
+            'user'=>'required',
         ]);
 
         $sementara = OrderSementara::All();
         $idorder ='O'.date('ymd').rand(01,999);
-        
-        // $meja = Meja::where('id_meja', 'like', "%".$request->get('no_meja')."%")->first();
-        // $meja->status_meja = 'terisi';
-        // $meja->update();
     
         $order = new Order;
         $order->id_sewa = $idorder;
-        $order->id_user = '1';
+        $order->id_user = $request->get('user');
         $order->tanggal_sewa = now();
         $order->tanggal_kembali = $request->get('kembali');
         $order->harga_sewa = $sementara->sum('harga');
+        $order->uang_bayar = $request->get('bayar');
+        $order->kembalian = $request->get('kembalian');
         $order->status = 'belum';
         $order->save();
     
@@ -133,6 +133,10 @@ class OrderController extends Controller
                 'id_dvd' => $value->id_dvd,
                 'harga' =>$value->harga,
             );
+            $dvd = DVD::where('id_dvd', 'like', "%".$value->id_dvd."%")->first();
+            $dvd->stok = $dvd->stok - 1;
+            $dvd->update();
+
             DetailOrder::insert($order);
             OrderSementara::where('id_sorder', 'like', "%".$value->id_dorder."%")->first()->delete();
     

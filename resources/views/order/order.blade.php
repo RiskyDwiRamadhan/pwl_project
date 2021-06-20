@@ -116,7 +116,17 @@ Admin-Order
                             <h3><i class="far fa-file-alt"></i> Order</h3>
                         </div> --}}
                         <!-- end card-header -->
-
+                        
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                         <form method="post" action="{{ route('order.save') }}" id="myForm" enctype="multipart/form-data">
                             @csrf
                             @method('GET')
@@ -134,7 +144,7 @@ Admin-Order
                                             <tr>
                                                 <th width="5px">#</th>
                                                 <th width="280px">Nama DVD</th>
-                                                <th width="280px">Harga DVD</th>
+                                                <th width="100px">Harga DVD</th>
                                                 <th width="100px">Action</th>
                                             </tr>
                                         </thead>
@@ -148,8 +158,8 @@ Admin-Order
                                                 <td>{{ $D->dvd->harga_dvd }}</td>
                                                 <td>
                                                     <form action="{{ route('order.destroy', $D->id_sorder) }}" method="post">
-                                                    {{-- --}}@csrf 
-                                                    {{--  --}}@method('DELETE')
+                                                    <!-- {{-- --}}@csrf 
+                                                    {{--  --}}@method('DELETE') -->
                                                         <button type="submit" class="btn btn-danger btn-sm btn-block" onclick="return confirm('Anda yakin ingin meghapus data ini ?')">Delete</button>
                                                                 
                                                     </form>
@@ -160,19 +170,27 @@ Admin-Order
                                     <tr>
                                         <th ></th>
                                         <th width="110px">Total Harga</th>
-                                        <th>{{$detailorder->sum('harga')}}</th>
+                                        <th>
+                                            <input type="total" name="total" class="form-control" id="total" aria-describedby="total" value="{{$detailorder->sum('harga')}}" readonly>
+                                        </th>
                                         <th ></th>
                                     </tr>
                                     <tr>
                                         <th ></th>
                                         <th width="110px">Uang Bayar</th>
-                                        <th><input type="text"></th>
-                                        <th ></th>
+                                        <th>
+                                            <div class="transaksi">
+                                                <input type="bayar" name="bayar" class="form-control" id="bayar" aria-describedby="bayar">
+                                            </div>
+                                        </th>
+                                        <th></th>
                                     </tr>
                                     <tr>
                                         <th ></th>
                                         <th width="110px">Kembalian</th>
-                                        <th><input type="text" readonly></th>
+                                        <th>
+                                            <input type="kembalian" name="kembalian" class="form-control" id="kembalian" aria-describedby="kembalian" readonly>
+                                        </th>
                                         <th ></th>
                                     </tr>
                                     </table>
@@ -184,6 +202,10 @@ Admin-Order
                             
                                 <div class="container mt-1 " style="width: 24rem;"> 
                                     
+                                    <div class="form-group">
+                                        <label for="user">Id User</label>
+                                        <input type="text" name="user" class="form-control" id="user">
+                                    </div>
                                     <div class="form-group">
                                         <label for="pinjam">Tanggal Pinjam</label>
                                         <input type="text" name="pinjam" class="form-control" id="pinjam" aria-describedby="Tanggal Sewa" value="{{now()}}" readonly>
@@ -214,4 +236,15 @@ Admin-Order
 </div>
 <!-- END content-page -->
 </form>
+<script>
+    jQuery(function ($) { 
+        $("#bayar").on('change', function() {
+            let bayar = $(this).val();
+            let total = $('#total').val();
+            let kembalian = bayar - total;
+
+            $("#kembalian").val(kembalian);
+        });
+    });
+</script>
 @endsection 
