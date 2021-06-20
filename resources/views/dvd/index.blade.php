@@ -33,7 +33,7 @@ Admin-DVD
 
                         <div class="card-header">
                             <span class="pull-right"><a href="{{ route('dvd.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Add DVD</a></span>
-                            <h3><i class="far fa-file-alt"></i> DVD</h3>
+                            <h3><i class="far fa-file-alt"></i> Form DVD</h3>
                         </div>
                         
                         <div class="mt-3 btn-sm" style="width:310px">
