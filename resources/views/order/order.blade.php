@@ -10,24 +10,24 @@
             </div>
             
             {{-- <div class="float-right my-2">
-                <a class="btn btn-dark" href="{{ route('detailorder.save') }}">Order</a>                        
-                <a class="btn btn-success" href="{{ route('home.menu') }}"> Input Detail Order</a>
-            </div> 
-        </div>
+                <a class="btn btn-dark" href="{{ route('detailorder.save') }}">Order</a>
+<a class="btn btn-success" href="{{ route('home.menu') }}"> Input Detail Order</a>
+</div>
+</div>
+</div>
+
+<form method="post" action="#" id="myForm" enctype="multipart/form-data">
+    @csrf
+    @method('GET')
+    <div class="float-right my-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-success" href="{{ route('dvd.home') }}"> Tambah Menu</a>
     </div>
 
-    <form method="post" action="#" id="myForm" enctype="multipart/form-data">
-        @csrf
-        @method('GET')
-        <div class="float-right my-2">
-            <button type="submit" class="btn btn-primary">Submit</button>                   
-            <a class="btn btn-success" href="{{ route('dvd.home') }}"> Tambah Menu</a>
-        </div>
-
     @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
     @endif
 
     <table class="table table-bordered">
@@ -43,9 +43,9 @@
             <td>
                 {{-- <form action="{{ route('detailorder.destroy', $D->id_sorder) }}" method="POST">
 
-                    <a class="btn btn-primary" href="{{ route('detailorder.edit', $D->id_sorder) }}">Edit</a>
-                    @csrf
-                    {{-- @method('DELETE')  
+                <a class="btn btn-primary" href="{{ route('detailorder.edit', $D->id_sorder) }}">Edit</a>
+                @csrf
+                {{-- @method('DELETE')  
                     <button type="submit" class="btn btn-danger">Delete</button>
                             
                 </form> 
@@ -57,14 +57,14 @@
             <th>{{$detailorder->sum('harga')}}</th>
             <th></th>
         </tr>
-    </table>    
+    </table>
 
     <div class="d-flex">
         {{ $detailorder->links() }}
     </div>
 
-    <div class="container mt-1 " style="width: 24rem;"> 
-        
+    <div class="container mt-1 " style="width: 24rem;">
+
         <div class="form-group">
             <label for="tanggal">Tanggal Pinjam</label>
             <input type="tanggal" name="tanggal" class="form-control" id="tanggal" aria-describedby="Tanggal Transaksi" value="{{NOW()}}">
@@ -75,7 +75,7 @@
         </div>
     </div>
 </form>
-@endsection  --}}
+@endsection --}}
 
 @extends('layouts.index')
 @section('title')
@@ -112,106 +112,120 @@ Admin-Order
 
                         {{-- <div class="card-header">
                             <span class="pull-right"><a href="{{ route('order.store') }}" class="btn btn-success btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Order</a></span>
+                        <span class="pull-right"><a href="{{ route('dvd.home') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Add Order</a></span>
+                        <h3><i class="far fa-file-alt"></i> Order</h3>
+                    </div> --}}
+                    <!-- end card-header -->
+
+                    <form method="post" action="{{ route('order.save') }}" id="myForm" enctype="multipart/form-data">
+                        @csrf
+                        @method('GET')
+
+                        <div class="card-header">
                             <span class="pull-right"><a href="{{ route('dvd.home') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Add Order</a></span>
                             <h3><i class="far fa-file-alt"></i> Order</h3>
-                        </div> --}}
-                        <!-- end card-header -->
+                        </div>
+                        @php $no = 1; @endphp
+                        @foreach ($detailorder as $D)
 
-                        <form method="post" action="{{ route('order.save') }}" id="myForm" enctype="multipart/form-data">
-                            @csrf
-                            @method('GET')
+                        <div class="card-body">
 
-                            <div class="card-header">
-                                <span class="pull-right"><a href="{{ route('dvd.home') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Add Order</a></span>
-                                <h3><i class="far fa-file-alt"></i> Order</h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th width="5px">#</th>
+                                            <th width="280px">Nama DVD</th>
+                                            <th width="280px">Harga DVD</th>
+                                            <th width="100px">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $D->dvd->nama_dvd }}</td>
+                                            <td>{{ $D->dvd->harga_dvd }}</td>
+                                            <td>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                    <tr>
+                                        <th></th>
+                                        <th width="110px">Total Harga</th>
+                                        <th><input id="totalBayar" type="text" value="{{$detailorder->sum('harga')}}" readonly></th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <th width="110px">Uang Bayar</th>
+                                        <th><input id="uang-bayar" type="text"></th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <th width="110px">Kembalian</th>
+                                        <th><input id="total" type="text" readonly></th>
+                                        <th></th>
+                                    </tr>
+                                </table>
                             </div>
 
-                            <div class="card-body">
+                            <div class="d-flex">
+                                {{ $detailorder->links() }}
+                            </div>
 
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th width="5px">#</th>
-                                                <th width="280px">Nama DVD</th>
-                                                <th width="280px">Harga DVD</th>
-                                                <th width="100px">Action</th>
-                                            </tr>
-                                        </thead>
-                                    @php $no = 1; @endphp
-                                    @foreach ($detailorder as $D)
-                                        <tbody>
+                            <div class="container mt-1 " style="width: 24rem;">
 
-                                            <tr>
-                                                <td>{{ $no++ }}</td>
-                                                <td>{{ $D->dvd->nama_dvd }}</td>
-                                                <td>{{ $D->dvd->harga_dvd }}</td>
-                                                <td>
-                                                    <form action="{{ route('order.destroy', $D->id_sorder) }}" method="post">
-                                                    {{-- --}}@csrf 
-                                                    {{--  --}}@method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm btn-block" onclick="return confirm('Anda yakin ingin meghapus data ini ?')">Delete</button>
-                                                                
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    @endforeach   
-                                    <tr>
-                                        <th ></th>
-                                        <th width="110px">Total Harga</th>
-                                        <th>{{$detailorder->sum('harga')}}</th>
-                                        <th ></th>
-                                    </tr>
-                                    <tr>
-                                        <th ></th>
-                                        <th width="110px">Uang Bayar</th>
-                                        <th><input type="text"></th>
-                                        <th ></th>
-                                    </tr>
-                                    <tr>
-                                        <th ></th>
-                                        <th width="110px">Kembalian</th>
-                                        <th><input type="text" readonly></th>
-                                        <th ></th>
-                                    </tr>
-                                    </table>
+                                <div class="form-group">
+                                    <label for="pinjam">Tanggal Pinjam</label>
+                                    <input type="text" name="pinjam" class="form-control" id="pinjam" aria-describedby="Tanggal Sewa" value="{{now()}}" readonly>
                                 </div>
-
-                                <div class="d-flex">
-                                    {{ $detailorder->links() }}
+                                <div class="form-group">
+                                    <label for="kembali">Tanggal Kembali</label>
+                                    <input type="DATE" name="kembali" class="form-control" id="kembali" aria-describedby="Tanggal Kembali" value="{{NOW()}}">
                                 </div>
-                            
-                                <div class="container mt-1 " style="width: 24rem;"> 
-                                    
-                                    <div class="form-group">
-                                        <label for="pinjam">Tanggal Pinjam</label>
-                                        <input type="text" name="pinjam" class="form-control" id="pinjam" aria-describedby="Tanggal Sewa" value="{{now()}}" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="kembali">Tanggal Kembali</label>
-                                        <input type="DATE" name="kembali" class="form-control" id="kembali" aria-describedby="Tanggal Kembali" value="{{NOW()}}">
-                                    </div>
-                                <button type="submit" class="btn btn-success pull-right btn-sm btn-block mb-3">Submit</button>  
-                                </div>
-                            </div> 
-                            <!-- end card-body -->
-                    </div>
-                    <!-- end card -->
-
+                                <button value="save" type="submit" class="btn btn-success pull-right btn-sm btn-block mb-3">Submit</button>
+                            </div>
+                    </form>
+                    <form action="{{ route('order.destroy', $D->id_sorder) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button value="delete" type="submit" class="btn btn-danger btn-sm btn-block" onclick="return confirm('Anda yakin ingin meghapus data ini ?')">Delete</button>
+                    </form>
                 </div>
-                <!-- end col -->
-
+                @endforeach
+                <!-- end card-body -->
             </div>
-            <!-- end row -->
+            <!-- end card -->
 
         </div>
-        <!-- END container-fluid -->
+        <!-- end col -->
 
     </div>
-    <!-- END content -->
+    <!-- end row -->
 
 </div>
+<!-- END container-fluid -->
+
+</div>
+<!-- END content -->
+
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#totalBayar, #uang-bayar").keyup(function() {
+            var totalBayar = $("#totalBayar").val();
+            var bayar = $("#uang-bayar").val();
+
+            var total = parseInt(bayar) - parseInt(totalBayar);
+            $("#total").val(total);
+        });
+    });
+</script>
 <!-- END content-page -->
-</form>
-@endsection 
+
+@endsection

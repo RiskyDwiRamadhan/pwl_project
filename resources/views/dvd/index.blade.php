@@ -69,7 +69,7 @@ Admin-DVD
                                                 <td><img width="100px" src="{{ asset('storage/' . $DVD->image_dvd) }}"></td>
                                                 <td>{{ $DVD->nama_dvd }}</td>
                                                 <td>{{ $DVD->harga_dvd}}</td>
-                                                <td>{{ $DVD->status_dvd }}</td>
+                                                <td>{{ $DVD->status->status }}</td>
                                                 <td>{{ $DVD->stok }}</td>
                                                 <td>
                                                     <form action="{{ route('dvd.destroy',$DVD->id_dvd) }}" method="POST">

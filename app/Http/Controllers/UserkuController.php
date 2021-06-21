@@ -37,17 +37,17 @@ class UserkuController extends Controller
      */
     public function store(Request $request)
     {
-       //melakukan validasi data
-       $request->validate([
-        'email' => 'required',
-        'username' => 'required',
-        'password' => 'required'
-         ]);
+        //melakukan validasi data
+        $request->validate([
+            'email' => 'required',
+            'username' => 'required',
+            'password' => 'required'
+        ]);
         //fungsi eloquent untuk menambah data
         Userku::create($request->all());
         //jika data berhasil ditambahkan, akan kembali ke halaman utama
         return redirect()->route('userku.index')
-        ->with('success', 'Akun Berhasil Ditambahkan');
+            ->with('success', 'Akun Berhasil Ditambahkan');
     }
 
     /**
@@ -70,7 +70,7 @@ class UserkuController extends Controller
      */
     public function edit($id)
     {
-        $userku = User::where('id',$id);
+        $userku = User::where('id', $id);
         return view('userku.edit', compact('userku'));
     }
 
@@ -83,16 +83,16 @@ class UserkuController extends Controller
      */
     public function update(Request $request, $id)
     {
-         //melakukan validasi data
-         $request->validate([
+        //melakukan validasi data
+        $request->validate([
             'email' => 'required',
             'username' => 'required',
             'password' => 'required'
-             ]);
-            //fungsi eloquent untuk menngupdate data
-            UserData::where('id',$id)->update($request->except(['_token', '_method' ]));
-            //jika data berhasil diupdate, akan kembali ke halaman utama
-            return redirect()->route('userku.index')
+        ]);
+        //fungsi eloquent untuk menngupdate data
+        Userku::where('id', $id)->update($request->except(['_token', '_method']));
+        //jika data berhasil diupdate, akan kembali ke halaman utama
+        return redirect()->route('userku.index')
             ->with('success', 'Akun Berhasil Diupdate');
     }
 
@@ -104,8 +104,8 @@ class UserkuController extends Controller
      */
     public function destroy($id)
     {
-       Userku::where('id',$id)->delete();
-       return redirect()->route('userku.index')
-         ->with('success', 'Akun berhasil dihapus');
+        Userku::where('id', $id)->delete();
+        return redirect()->route('userku.index')
+            ->with('success', 'Akun berhasil dihapus');
     }
 }

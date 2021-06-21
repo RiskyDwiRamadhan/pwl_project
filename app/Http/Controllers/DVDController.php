@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DVD;
+use App\Models\status;
 
 class DVDController extends Controller
 {
@@ -23,6 +24,7 @@ class DVDController extends Controller
             //fungsi eloquent menampilkan data menggunakan pagination
             $dvd = DVD::paginate(5); // Pagination menampilkan 5 data
         }
+        // $dvd = DVD::where('status_id', '=',2)->paginate(5);
         return view('dvd.index', compact('dvd'));
     }
 
@@ -33,7 +35,8 @@ class DVDController extends Controller
      */
     public function create()
     {
-        return view('dvd.create');
+        $status = status::all();
+        return view('dvd.create',compact('status'));
     }
 
     /**
@@ -48,7 +51,7 @@ class DVDController extends Controller
             'id_dvd'=>'required',
             'nama_dvd' => 'required',
             'harga_dvd'=> 'required',
-            'status_dvd'=> 'required',
+            'status'=> 'required',
             'stok'=> 'required',
             'image'=> 'required|file|image|mimes:jpeg,png,jpg',
         ]);
@@ -62,7 +65,7 @@ class DVDController extends Controller
         $dvd->id_dvd = $request->get('id_dvd');
         $dvd->nama_dvd = $request->get('nama_dvd');
         $dvd->harga_dvd = $request->get('harga_dvd');
-        $dvd->status_dvd = $request->get('status_dvd');
+        $dvd->status_id = $request->get('status');
         $dvd->stok = $request->get('stok');
         $dvd->image_dvd = $image_name;
 
@@ -91,8 +94,9 @@ class DVDController extends Controller
      */
     public function edit($id)
     {
+        $status = status::all();
         $dvd = DVD::find($id);
-        return view('dvd.edit', compact('dvd'));
+        return view('dvd.edit', compact('dvd','status'));
     }
 
     /**
@@ -108,7 +112,7 @@ class DVDController extends Controller
             'id_dvd'=>'required',
             'nama_dvd' => 'required',
             'harga_dvd'=> 'required',
-            'status_dvd'=> 'required',
+            'status'=> 'required',
             'stok'=> 'required',
             'image'=> 'required|file|image|mimes:jpeg,png,jpg',
         ]);
@@ -117,7 +121,7 @@ class DVDController extends Controller
         $dvd->id_dvd = $request->get('id_dvd');
         $dvd->nama_dvd = $request->get('nama_dvd');
         $dvd->harga_dvd = $request->get('harga_dvd');
-        $dvd->status_dvd = $request->get('status_dvd');
+        $dvd->status_id = $request->get('status');
         $dvd->stok = $request->get('stok');
 
         if($dvd->image && file_exists(storage_path('app/public/' .$dvd->image))){

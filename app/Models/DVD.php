@@ -28,4 +28,8 @@ class DVD extends Model
     {
         return $this->hashMany(OrderSementara::class, 'id_dvd');
     }
+    public function status()
+    {
+        return $this->belongsTo(status::class);
+    }
 }

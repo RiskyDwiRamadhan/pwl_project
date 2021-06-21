@@ -117,9 +117,14 @@ DVD-Create
                                         <label for="stok">Stok DVD<span class="text-danger">*</span></label>
                                         <input type="text" value="{{ $dvd->stok }}" name="stok" data-parsley-trigger="change" required placeholder="Masukkan Harga DVD" class="form-control" id="stok">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group"> 
                                         <label for="status_dvd">Status DVD<span class="text-danger">*</span></label>
-                                        <input type="text" value="{{ $dvd->status_dvd }}" name="status_dvd" data-parsley-trigger="change" required placeholder="Masukkan Status DVD" class="form-control" id="status_dvd">
+                                        <select name="status" class="form-control">
+                                        @foreach($status as $status)
+                                            <option value="{{ $status->id }}" {{$dvd->status_id == $status->id ? 'selected' : ''}}>{{$status->status}}</option>
+                                        @endforeach
+                                        </select>
+
                                     </div>
                                     <div class="form-group text-right m-b-0">
                                         <button class="btn btn-primary" type="submit">

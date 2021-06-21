@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\KembaliController;
 use App\Http\Controllers\UserkuController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ use App\Http\Controllers\UserkuController;
 // Route::resource('order', OrderController::class);
 // Route::resource('dvd', DVDController::class);
 // Route::resource('sewa', PenyewaanController::class);
-Route::resource('userdata', UserkuController::class);
+Route::resource('userku', UserkuController::class);
 
 Auth::routes();
 
@@ -41,22 +42,21 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'home'])->name('home');
 
     Route::middleware(['admin'])->group(function () {
-        Route::resource('dvd', DVDController::class); 
+        Route::resource('dvd', DVDController::class);
         // Route::get('/', [HomeController::class, 'index'])->name('home');       
     });
- 
+
     Route::middleware(['kasir'])->group(function () {
-        Route::get('/dvds', [DVDController::class, 'dvd'])->name('dvd.home');
+        Route::get('/home', [DVDController::class, 'dvd'])->name('dvd.home');
         Route::get('/pesan/{id}', [OrderController::class, 'pesan'])->name('dvd.pesan');
         Route::get('/save', [OrderController::class, 'save'])->name('order.save');
-        
+
         Route::resource('order', OrderController::class);
         Route::resource('kembali', KembaliController::class);
     });
- 
-    Route::get('/logout', function() {
+
+    Route::get('/logout', function () {
         Auth::logout();
         redirect('/');
     });
- 
 });
