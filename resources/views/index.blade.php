@@ -61,7 +61,7 @@ Dashboard - Home
                         <div class="col-12">
                             <div class="card mb-3">
                                 <div class="card-header">
-                                    <h3><i class="fas fa-user-friends"></i> Users details</h3>
+                                    <h3><i class="fas fa-file-alt"></i> Data Sewa</h3>
                                 </div>
 
                                 <div class="card-body">
@@ -70,15 +70,43 @@ Dashboard - Home
                                         <table id="" class="table table-bordered table-hover display" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Extn.</th>
-                                                    <th>Date</th>
-                                                    <th>Salary</th>
+                                                    <th style="width:5px">#</th>
+                                                    <th width="150px">ID User</th>
+                                                    <th width="280px">Tanggal Sewa</th>
+                                                    <th width="280px">Tanggal Kembali</th>
+                                                    <th width="280px">Harga Sewa</th>
+                                                    <th width="280px">Uang Bayar</th>
+                                                    <th width="280px">Kembalian</th>
+                                                    <th width="280px">Status</th>
                                                 </tr>
                                             </thead>
+                                            @php $no = 1; @endphp
+                                        @foreach ($data as $k)
+                                            <tbody>
+
+                                                <tr>
+                                                    <td>{{ $no++ }}</td>
+                                                    <td>{{ $k->id_user }}</td>   
+                                                    <td>{{ $k->tanggal_sewa }}</td>
+                                                    <td>{{ $k->tanggal_kembali }}</td>                                                
+                                                    <td>{{ $k->harga_sewa }}</td>                                         
+                                                    <td>{{ $k->uang_bayar }}</td>
+                                                    <td>{{ $k->kembalian }}</td>
+                                                    <td>{{ $k->status }}</td>     
+                                                </tr>
+                                            </tbody>
+                                        @endforeach 
                                         </table>
+
+                                    <div class="d-flex">
+                                        {{ $data->links() }}
+                                    </div>
+                                    <div class="container " style="width: 24rem;">
+
+                                    <div class="form-group">
+                                        <span class="pull-center"><a href="{{ route('home.cetak') }}" class="btn btn-danger btn-sm btn-block mb-3"></i> Print Pdf</a></span>
+                                    </div>
+                                    <!-- <a href="{{ route('dvd.home') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Add Order</a> -->
                                     </div>
                                     <!-- end table-responsive-->
 

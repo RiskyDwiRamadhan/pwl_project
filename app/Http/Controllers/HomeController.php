@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\User;
 use App\Models\Order;
+use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class HomeController extends Controller
 {
@@ -41,6 +43,13 @@ class HomeController extends Controller
     {
         $user = User::All();
         $order = Order::where('tanggal_sewa', 'like', "%".now()."%");
-        return view('index', compact('user', 'order'));
+        $data = Order::paginate(10);
+        return view('index', compact('user', 'order', 'data'));
+    }
+
+    public function cetak_pdf(){
+        $order = Order::All();
+        $pdf = PDF::loadview('order.cetak_pdf', ['order' => $order]);
+        return $pdf->stream();
     }
 }

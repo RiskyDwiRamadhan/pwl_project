@@ -40,6 +40,7 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/', [HomeController::class, 'home'])->name('home');
+    Route::get('/cetak_pdf', [HomeController::class, 'cetak_pdf'])->name('home.cetak');
 
     Route::middleware(['admin'])->group(function () {
         Route::resource('dvd', DVDController::class);
