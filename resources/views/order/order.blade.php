@@ -47,10 +47,10 @@ Admin-Order
                                 </ul>
                             </div>
                         @endif -->
-
+<!-- 
                     <form method="post" action="{{ route('order.save') }}" id="myForm" enctype="multipart/form-data">
                         @csrf
-                        @method('GET')
+                        @method('GET') -->
 
                         <div class="card-header">
                             <span class="pull-right"><a href="{{ route('dvd.home') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Add Order</a></span>
@@ -78,15 +78,18 @@ Admin-Order
                                             <td>{{ $D->dvd->nama_dvd }}</td>
                                             <td>{{ $D->dvd->harga_dvd }}</td>
                                             <td>
-                                            <!-- <form action="{{ route('order.destroy', $D->id_sorder) }}" method="post">
+                                            <form action="{{ route('order.destroy', $D->id_sorder) }}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <button value="delete" type="submit" class="btn btn-danger btn-sm btn-block" onclick="return confirm('Anda yakin ingin meghapus data ini ?')">Delete</button>
-                                                </form> -->
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
+                    <form method="post" action="{{ route('order.save') }}" id="myForm" enctype="multipart/form-data">
+                        @csrf
+                        @method('GET')
 
                                     <tr>
                                         <th></th>

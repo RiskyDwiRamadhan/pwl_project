@@ -17,7 +17,8 @@ class KembaliController extends Controller
     public function index(Request $request)
     {
         if($request->has('search')){ // Pemilihan jika ingin melakukan pencarian nama
-            $kembali = Order::where('id_user', 'like', "%".$request->search."%")->paginate(10);
+            $kembali = Order::where('id_user', 'like', "%".$request->search."%")->
+                              where('status', 'like', "%".'belum'."%")->paginate(10);
         } else { // Pemilihan jika tidak melakukan pencarian nama
             //fungsi eloquent menampilkan data menggunakan pagination
             $kembali = Order::where('status', 'like', "%".'belum'."%")->paginate(10);
