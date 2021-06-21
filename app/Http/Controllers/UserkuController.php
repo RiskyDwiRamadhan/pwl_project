@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Userku;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserkuController extends Controller
 {
@@ -15,7 +16,7 @@ class UserkuController extends Controller
      */
     public function index()
     {
-        $userku = Userku::paginate(10);
+        $userku = User::paginate(10);
         return view('userku.index', ['userku' => $userku]);
     }
 
@@ -40,11 +41,17 @@ class UserkuController extends Controller
         //melakukan validasi data
         $request->validate([
             'email' => 'required',
-            'username' => 'required',
-            'password' => 'required'
+            'name' => 'required',
+            'password' => 'required',
+            'role' => 'required'
         ]);
         //fungsi eloquent untuk menambah data
-        Userku::create($request->all());
+        $user = new User;
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->password = Hash::make($request->get('password'));
+        $user->role = $request->get('role');
+        $user->save();
         //jika data berhasil ditambahkan, akan kembali ke halaman utama
         return redirect()->route('userku.index')
             ->with('success', 'Akun Berhasil Ditambahkan');
@@ -58,7 +65,7 @@ class UserkuController extends Controller
      */
     public function show($id)
     {
-        $userku = Userku::find($id);
+        $userku = User::find($id);
         return view('userku.detail', compact('userku'));
     }
 
@@ -70,7 +77,7 @@ class UserkuController extends Controller
      */
     public function edit($id)
     {
-        $userku = User::where('id', $id);
+        $userku = User::where('id', $id)->first();
         return view('userku.edit', compact('userku'));
     }
 
@@ -86,11 +93,20 @@ class UserkuController extends Controller
         //melakukan validasi data
         $request->validate([
             'email' => 'required',
-            'username' => 'required',
-            'password' => 'required'
+            'name' => 'required',
+            'password' => 'required',
+            'role' => 'required'
         ]);
         //fungsi eloquent untuk menngupdate data
-        Userku::where('id', $id)->update($request->except(['_token', '_method']));
+            $user = User::find($id);
+
+            
+            $user->email = $request->get('email');
+            $user->name = $request->get('name');
+            $user->password = Hash::make($request->get('password'));
+            $user->role = $request->get('role');
+
+            $user->update();
         //jika data berhasil diupdate, akan kembali ke halaman utama
         return redirect()->route('userku.index')
             ->with('success', 'Akun Berhasil Diupdate');
