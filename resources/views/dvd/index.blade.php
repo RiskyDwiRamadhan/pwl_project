@@ -58,7 +58,7 @@ Admin-DVD
                                                 <th width="280px">Nama DVD</th>
                                                 <th width="280px">Harga DVD</th>
                                                 <th width="280px">Status DVD</th>
-                                                <th width="100">Stok</th>
+                                                <!-- <th width="100">Stok</th> -->
                                                 <th width="200px">Action</th>
                                             </tr>
                                         </thead>
@@ -69,8 +69,8 @@ Admin-DVD
                                                 <td><img width="100px" src="{{ asset('storage/' . $DVD->image_dvd) }}"></td>
                                                 <td>{{ $DVD->nama_dvd }}</td>
                                                 <td>{{ $DVD->harga_dvd}}</td>
-                                                <td>{{ $DVD->status->status }}</td>
-                                                <td>{{ $DVD->stok }}</td>
+                                                <td>{{ $DVD->status_dvd }}</td>
+                                                <!-- <td>{{ $DVD->stok }}</td> -->
                                                 <td>
                                                     <form action="{{ route('dvd.destroy',$DVD->id_dvd) }}" method="POST">
                                 

@@ -22,7 +22,7 @@ class DVDController extends Controller
                         paginate(5);
         } else { // Pemilihan jika tidak melakukan pencarian nama
             //fungsi eloquent menampilkan data menggunakan pagination
-            $dvd = DVD::where('stok', '>','0')->paginate(10); // Pagination menampilkan 5 data
+            $dvd = DVD::paginate(10); // Pagination menampilkan 5 data
         }
         // $dvd = DVD::where('status_id', '=',2)->paginate(5);
         return view('dvd.index', compact('dvd'));
@@ -52,7 +52,7 @@ class DVDController extends Controller
             'nama_dvd' => 'required',
             'harga_dvd'=> 'required',
             'status'=> 'required',
-            'stok'=> 'required',
+            // 'stok'=> 'required',
             'image'=> 'required|file|image|mimes:jpeg,png,jpg',
         ]);
 
@@ -65,8 +65,8 @@ class DVDController extends Controller
         $dvd->id_dvd = $request->get('id_dvd');
         $dvd->nama_dvd = $request->get('nama_dvd');
         $dvd->harga_dvd = $request->get('harga_dvd');
-        $dvd->status_id = $request->get('status');
-        $dvd->stok = $request->get('stok');
+        $dvd->status_dvd = $request->get('status');
+        // $dvd->stok = $request->get('stok');
         $dvd->image_dvd = $image_name;
 
         $dvd->save(); 
@@ -113,7 +113,7 @@ class DVDController extends Controller
             'nama_dvd' => 'required',
             'harga_dvd'=> 'required',
             'status'=> 'required',
-            'stok'=> 'required',
+            // 'stok'=> 'required',
             'image'=> 'required|file|image|mimes:jpeg,png,jpg',
         ]);
         
@@ -121,8 +121,8 @@ class DVDController extends Controller
         $dvd->id_dvd = $request->get('id_dvd');
         $dvd->nama_dvd = $request->get('nama_dvd');
         $dvd->harga_dvd = $request->get('harga_dvd');
-        $dvd->status_id = $request->get('status');
-        $dvd->stok = $request->get('stok');
+        $dvd->status_dvd = $request->get('status');
+        // $dvd->stok = $request->get('stok');
 
         if($dvd->image && file_exists(storage_path('app/public/' .$dvd->image_dvd))){
             Storage::delete('public/images/' .$dvd->image);
@@ -162,7 +162,7 @@ class DVDController extends Controller
                         paginate(6);
         } else { // Pemilihan jika tidak melakukan pencarian nama
             //fungsi eloquent menampilkan data menggunakan pagination
-            $dvd = DVD::paginate(5); // Pagination menampilkan 5 data
+            $dvd = DVD::orwhere('status_dvd', 'like', "%belum dipinjam%")->paginate(5); // Pagination menampilkan 5 data
         }
         return view('dvd.dvd', compact('dvd'));
     }

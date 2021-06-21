@@ -54,16 +54,16 @@ DVD-Create
                                         <label for="harga_dvd">Harga DVD<span class="text-danger">*</span></label>
                                         <input type="text" name="harga_dvd" data-parsley-trigger="change" required placeholder="Masukkan Harga DVD" class="form-control" id="harga_dvd">
                                     </div>
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label for="stok">Stok DVD<span class="text-danger">*</span></label>
                                         <input type="text" name="stok" data-parsley-trigger="change" required placeholder="Masukkan Harga DVD" class="form-control" id="stok">
-                                    </div>
+                                    </div> -->
                                     <div class="form-group"> 
                                         <label for="status_dvd">Status DVD<span class="text-danger">*</span></label>
                                          <select class="form-control" id="status" name="status" data-live-search="true" style="width:100%">
                                          <option value=""> --Silahkan Pilih-- </option>
                                          @foreach ($status as $status)
-                                            <option value="{{$status->id}}">{{$status->status}}</option> 
+                                            <option value="{{$status->status}}">{{$status->status}}</option> 
                                          @endforeach
                                         </select>
 
@@ -110,7 +110,7 @@ DVD-Create
 
     <!-- BEGIN Java Script for this page -->
     <script src="{{ asset('Nura Admin/assets/plugins/parsleyjs/parsley.min.js') }}"></script>
-    <script>
+    <!-- <script>
     $(function() {
         var $sections = $('.form-section');
 
@@ -156,7 +156,7 @@ DVD-Create
 
     $('#form').parsley();
     </script>
-    <!-- END Java Script for this page -->
+    END Java Script for this page -->
 
 
 

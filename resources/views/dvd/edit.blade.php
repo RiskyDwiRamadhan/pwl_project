@@ -121,7 +121,7 @@ DVD-Create
                                         <label for="status_dvd">Status DVD<span class="text-danger">*</span></label>
                                         <select name="status" class="form-control">
                                         @foreach($status as $status)
-                                            <option value="{{ $status->id }}" {{$dvd->status_id == $status->id ? 'selected' : ''}}>{{$status->status}}</option>
+                                            <option value="{{ $status->status }}">{{$status->status}}</option>
                                         @endforeach
                                         </select>
 

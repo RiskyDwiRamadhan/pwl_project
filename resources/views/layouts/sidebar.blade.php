@@ -43,8 +43,8 @@
                             </a>
                         </li>
                         <li class="submenu">
-                                <a href="#">
-                            <!-- <a href="{{ route('userdata.index') }}"> -->
+                                <!-- <a href="#"> -->
+                            <a href="{{ route('userku.index') }}">
                                 <i class="fas fa-user"></i>
                                 <span> Users </span>
                             </a>
