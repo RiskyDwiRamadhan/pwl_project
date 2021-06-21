@@ -34,6 +34,16 @@
                                 <h3><i class="far fa-file-alt"></i> Kembali</h3>
                             </div>
 
+                            <div class="mt-3 btn-sm" style="width:310px">
+                                <form action="{{ route('kembali.index') }}" method="GET">
+                                    <div class="input-group">
+                                        <input type="text" name="search" class="form-control" placeholder="Cari DVD....">
+                                        <button type="submit" class="btn btn-primary">
+                                            Cari
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                             <div class="card-body">
 
                                 <div class="table-responsive">
@@ -41,9 +51,9 @@
                                         <thead>
                                             <tr>
                                                 <th style="width:5px">#</th>
+                                                <th width="150px">ID User</th>
                                                 <th width="280px">Tanggal Sewa</th>
                                                 <th width="280px">Tanggal Kembali</th>
-                                                <!-- {{-- <th width="280px">Jumlah Sewa</th> --}} -->
                                                 <th width="280px">Harga Sewa</th>
                                                 <th width="280px">Status</th>
                                                 <th width="100px">Action</th>
@@ -55,14 +65,13 @@
 
                                             <tr>
                                                 <td>{{ $no++ }}</td>
+                                                <td>{{ $k->id_user }}</td>   
                                                 <td>{{ $k->tanggal_sewa }}</td>
-                                                <td>{{ $k->tanggal_kembali }}</td>
-                                                <!-- {{-- <td>{{ $k->dorder->sum('id_dorder') }}</td> --}} -->
+                                                <td>{{ $k->tanggal_kembali }}</td>                                                
                                                 <td>{{ $k->harga_sewa }}</td>
                                                 <td>{{ $k->status }}</td>
                                                 <td>
-                                                    {{-- <a class="btn btn-info btn-sm btn-block" href="{{ route('dvd.show',$DVD->id_dvd) }}">Show</a> --}}
-                                                    <a class="btn btn-info btn-sm btn-block" href="#">Show</a>
+                                                    <a class="btn btn-success btn-sm btn-block" href="{{ route('kembali.kembali', $k->id_sewa) }}">Kembali</a>
                                                 </td>
                                             </tr>
                                         </tbody>

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Order;
+use App\Models\DVD;
 
 class DetailOrder extends Model
 {
@@ -25,5 +26,10 @@ class DetailOrder extends Model
    public function order()
    {
        return $this->belongsTo(Order::class, 'id_order');
+   }
+
+   public function dvd()
+   {
+       return $this->hashMany(DVD::class, 'id_dvd');
    }
 }

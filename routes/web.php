@@ -50,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/home', [DVDController::class, 'dvd'])->name('dvd.home');
         Route::get('/pesan/{id}', [OrderController::class, 'pesan'])->name('dvd.pesan');
         Route::get('/save', [OrderController::class, 'save'])->name('order.save');
+        Route::get('/kembali/{id}', [KembaliController::class, 'kembali'])->name('kembali.kembali');
 
         Route::resource('order', OrderController::class);
         Route::resource('kembali', KembaliController::class);

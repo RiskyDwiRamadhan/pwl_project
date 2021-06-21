@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\OrderSementara;
+use App\Models\DetailOrder;
 
 class DVD extends Model
 {
@@ -23,7 +24,10 @@ class DVD extends Model
         'stok',
         'image_dvd'
     ];
-    
+    public function dorder()
+    {
+        return $this->hashMany(DetailOrder::class, 'id_dvd');
+    }
     public function sorder()
     {
         return $this->hashMany(OrderSementara::class, 'id_dvd');

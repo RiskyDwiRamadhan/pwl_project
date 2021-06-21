@@ -109,7 +109,7 @@ class OrderController extends Controller
         $request->validate([
             'kembali'=>'required',
             'kembalian'=>'required',
-            'user'=>'required',
+            // 'user'=>'required',
         ]);
 
         $sementara = OrderSementara::All();
@@ -117,7 +117,7 @@ class OrderController extends Controller
     
         $order = new Order;
         $order->id_sewa = $idorder;
-        $order->id_user = $request->get('user');
+        $order->id_user = "1";
         $order->tanggal_sewa = now();
         $order->tanggal_kembali = $request->get('kembali');
         $order->harga_sewa = $sementara->sum('harga');
@@ -134,7 +134,7 @@ class OrderController extends Controller
                 'harga' =>$value->harga,
             );
             $dvd = DVD::where('id_dvd', 'like', "%".$value->id_dvd."%")->first();
-            $dvd->stok = $dvd->stok - 1;
+            $dvd->status_dvd = "dipinjam";
             $dvd->update();
 
             DetailOrder::insert($order);
