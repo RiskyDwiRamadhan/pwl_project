@@ -30,28 +30,6 @@ Admin-Order
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
                     <div class="card mb-3">
-
-                        {{-- <div class="card-header">
-                            <span class="pull-right"><a href="{{ route('order.store') }}" class="btn btn-success btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Order</a></span>
-                        <span class="pull-right"><a href="{{ route('dvd.home') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Add Order</a></span>
-                        <h3><i class="far fa-file-alt"></i> Order</h3>
-                    </div> --}}
-                    <!-- end card-header -->
-                        <!-- @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif -->
-<!-- 
-                    <form method="post" action="{{ route('order.save') }}" id="myForm" enctype="multipart/form-data">
-                        @csrf
-                        @method('GET') -->
-
                         <div class="card-header">
                             <span class="pull-right"><a href="{{ route('dvd.home') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus" aria-hidden="true"></i> Add Order</a></span>
                             <h3><i class="far fa-file-alt"></i> Order</h3>
