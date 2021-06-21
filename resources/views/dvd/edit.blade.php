@@ -88,7 +88,7 @@ DVD-Create
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <div class="card mb-9">
                             <div class="card-header">
-                                <h3><i class="far fa-hand-pointer"></i> Form DVD</h3>
+                                <h3><i class="far fa-file-alt"></i> Form DVD</h3>
                             </div>
 
                             <div class="card-body">

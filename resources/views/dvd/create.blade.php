@@ -31,9 +31,9 @@ DVD-Create
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                         <div class="card mb-9">
                             <div class="card-header">
-                                <h3><i class="far fa-hand-pointer"></i> Form DVD</h3>
+                                <h3><i class="far fa-file-alt"></i> Form DVD</h3>
                             </div>
-
+                
                             <div class="card-body">
 
                                 <form method="post" action="{{ route('dvd.store') }}" id="myForm" enctype="multipart/form-data" data-parsley-validate novalidate>                                    
@@ -44,7 +44,7 @@ DVD-Create
                                     </div>
                                     <div class="form-group">
                                         <label for="id_dvd">ID DVD<span class="text-danger">*</span></label>
-                                        <input type="text" name="id_dvd" data-parsley-trigger="change" class="form-control" id="id_dvd">
+                                        <input type="text" name="id_dvd" data-parsley-trigger="change" required class="form-control" id="id_dvd">
                                     </div>
                                     <div class="form-group">
                                         <label for="nama_dvd">Nama DVD<span class="text-danger">*</span></label>

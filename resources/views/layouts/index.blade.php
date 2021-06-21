@@ -25,6 +25,7 @@
     <!-- BEGIN CSS for this page -->
     <link rel="stylesheet" type="text/css" href="{{ asset('Nura Admin/assets/plugins/chart.js/Chart.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('Nura Admin/assets/plugins/datatables/datatables.min.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- END CSS for this page -->
 </head>
 
