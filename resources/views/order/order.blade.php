@@ -37,7 +37,7 @@ Admin-Order
                         <h3><i class="far fa-file-alt"></i> Order</h3>
                     </div> --}}
                     <!-- end card-header -->
-                        @if ($errors->any())
+                        <!-- @if ($errors->any())
                             <div class="alert alert-danger">
                                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
                                 <ul>
@@ -46,7 +46,7 @@ Admin-Order
                                     @endforeach
                                 </ul>
                             </div>
-                        @endif
+                        @endif -->
 
                     <form method="post" action="{{ route('order.save') }}" id="myForm" enctype="multipart/form-data">
                         @csrf
@@ -78,12 +78,11 @@ Admin-Order
                                             <td>{{ $D->dvd->nama_dvd }}</td>
                                             <td>{{ $D->dvd->harga_dvd }}</td>
                                             <td>
-                    <!-- <form action="{{ route('order.destroy', $D->id_sorder) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <button value="delete" type="submit" class="btn btn-danger btn-sm btn-block" onclick="return confirm('Anda yakin ingin meghapus data ini ?')">Delete</button>
-                    </form> -->
-
+                                            <!-- <form action="{{ route('order.destroy', $D->id_sorder) }}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button value="delete" type="submit" class="btn btn-danger btn-sm btn-block" onclick="return confirm('Anda yakin ingin meghapus data ini ?')">Delete</button>
+                                                </form> -->
                                             </td>
                                         </tr>
                                     @endforeach
@@ -98,7 +97,7 @@ Admin-Order
                                     <tr>
                                         <th></th>
                                         <th width="110px">Uang Bayar</th>
-                                        <th><input id="bayar" name="bayar"  type="text"></th>
+                                        <th><input id="bayar" name="bayar" required type="text"></th>
                                         <th></th>
                                     </tr>
                                     <tr>
@@ -116,13 +115,17 @@ Admin-Order
 
                             <div class="container mt-1 " style="width: 24rem;">
 
+                            <div class="form-group">
+                                    <label for="user">ID User</label>
+                                    <input type="text" name="user" class="form-control" required id="user" aria-describedby="user">
+                                </div>
                                 <div class="form-group">
                                     <label for="pinjam">Tanggal Pinjam</label>
                                     <input type="text" name="pinjam" class="form-control" id="pinjam" aria-describedby="Tanggal Sewa" value="{{now()}}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="kembali">Tanggal Kembali</label>
-                                    <input type="DATE" name="kembali" class="form-control" id="kembali" aria-describedby="Tanggal Kembali" value="{{NOW()}}">
+                                    <input type="DATE" name="kembali" class="form-control" required id="kembali" aria-describedby="Tanggal Kembali" value="{{NOW()}}">
                                 </div>
                                 <button value="save" type="submit" class="btn btn-success pull-right btn-sm btn-block mb-3">Submit</button>
                             </div>

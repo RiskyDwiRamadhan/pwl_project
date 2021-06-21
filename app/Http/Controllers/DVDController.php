@@ -155,16 +155,15 @@ class DVDController extends Controller
 
     public function dvd(Request $request)
     {
-        // if($request->has('search')){ // Pemilihan jika ingin melakukan pencarian nama
-        //     $dvd = DVD::where('nama_dvd', 'like', "%".$request->search."%")->
-        //                 orwhere('harga_dvd', 'like', "%".$request->search."%")->
-        //                 orwhere('status_dvd', 'like', "%".$request->search."%")->
-        //                 paginate(6);
-        // } else { // Pemilihan jika tidak melakukan pencarian nama
-        //     //fungsi eloquent menampilkan data menggunakan pagination
-        //     $dvd = DVD::orwhere('status_dvd', 'like', "%belum dipinjam%")->paginate(5); // Pagination menampilkan 5 data
-        // }
-        $dvd = DVD::where('id_dvd', 'like', "%".'4'."%")->paginate(5);
+        if($request->has('search')){ // Pemilihan jika ingin melakukan pencarian nama
+            $dvd = DVD::where('nama_dvd', 'like', "%".$request->search."%")->
+                        orwhere('harga_dvd', 'like', "%".$request->search."%")->
+                        orwhere('status_dvd', 'like', "%".$request->search."%")->
+                        paginate(6);
+        } else { // Pemilihan jika tidak melakukan pencarian nama
+            //fungsi eloquent menampilkan data menggunakan pagination
+            $dvd = DVD::orwhere('status_dvd', 'like', "%belum dipinjam%")->paginate(5); // Pagination menampilkan 5 data
+        }
         return view('dvd.dvd', compact('dvd'));
     }
 }
