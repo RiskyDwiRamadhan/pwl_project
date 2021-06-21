@@ -32,8 +32,7 @@ Dashboard - Home
 	                            <div class="card-box noradius noborder bg-danger">
 	                                <i class="far fa-user float-right text-white"></i>
 	                                <h6 class="text-white text-uppercase m-b-20">Users</h6>
-	                                {{-- <h1 class="m-b-20 text-white counter">{{$user->count('id_user')}}</h1> --}}
-	                                <h1 class="m-b-20 text-white counter">8</h1>
+	                                <h1 class="m-b-20 text-white counter">{{$user->count('id')}}</h1>
 	                                <span class="text-white">Registered</span>
 	                            </div>
 	                        </div>
@@ -41,28 +40,17 @@ Dashboard - Home
 	                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
 	                            <div class="card-box noradius noborder bg-warning">
 	                                <i class="fas fa-shopping-cart float-right text-white"></i>
-	                                <h6 class="text-white text-uppercase m-b-20">Orders</h6>
-	                                {{-- <h1 class="m-b-20 text-white counter">{{$order->count('id_order')}}</h1> --}}
-	                                <h1 class="m-b-20 text-white counter">8</h1>
+	                                <h6 class="text-white text-uppercase m-b-20">Sewa</h6>
+	                                <h1 class="m-b-20 text-white counter">{{$order->count('id_sewa')}}</h1> 
 	                                <span class="text-white">Today</span>
 	                            </div>
 	                        </div>
-{{-- 
-	                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-	                            <div class="card-box noradius noborder bg-info">
-	                                <i class="far fa-calendar-alt float-right text-white"></i>
-	                                <h6 class="text-white text-uppercase m-b-20">Booking</h6>
-	                                <h1 class="m-b-20 text-white counter">58</h1>
-	                                <span class="text-white">Today</span>
-	                            </div>
-	                        </div> --}}
 
 	                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
 	                            <div class="card-box noradius noborder bg-purple">
 	                                <i class="fas fa-money-bill-wave float-right text-white"></i>
 	                                <h6 class="text-white text-uppercase m-b-20">Income</h6>
-	                                {{-- <h1 class="m-b-12 text-white counter">{{$transaksi->sum('harga')}}</h1> --}}
-	                                <h1 class="m-b-20 text-white counter">8</h1>
+	                                <h1 class="m-b-12 text-white counter">{{$order->sum('harga_sewa')}}</h1>
 	                                <span class="text-white">Today</span>
 	                            </div>
 	                        </div>

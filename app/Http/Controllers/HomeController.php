@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\User;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -37,6 +39,8 @@ class HomeController extends Controller
 
     public function home()
     {
-        return view('index');
+        $user = User::All();
+        $order = Order::where('tanggal_sewa', 'like', "%".now()."%");
+        return view('index', compact('user', 'order'));
     }
 }
