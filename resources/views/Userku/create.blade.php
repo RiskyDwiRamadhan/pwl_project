@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                         
-                            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-sm btn-block mt-2">Submit</button>
                             <a class="btn btn-success btn-sm btn-block mt-2" href="{{ route('userku.index') }}">Kembali</a>
                         </form>
                     </div>
